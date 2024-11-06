@@ -1,8 +1,10 @@
-# Install packages to open csv
+# Install packages to data wrangle
 install.packages("tidyverse")
+install.packages("data.table")
 
 # Load libraries
 library('tidyverse')
+library(data.table)
 
 # Read data into a dataframe based on your path (can copy and paste this usally)
 df <- read.csv("/Users/sara/Downloads/GPS_filtered_fullmerge(in).csv")
@@ -86,24 +88,27 @@ for (timestamp in df_with_new_col$"Timestamp") {
 # See the most common places
 View(scores_df)
 
-# Find the max value from the common scores during that time
+# Map pids to max columns
 row_index_2 <- 1
-for (pid_value in scores_df$"pid") {
-  
-  # Find what # they stayed the most at
-  max_col <- colnames(scores_df)[which.max(scores_df[row_index_2, ])]
-  
-  # Put this number into df_with_new_col
-  row_index_3 <- 1
-  for (pid_og in df_with_new_col$pid) {
-    if (pid_value == pid_og) {
-      df_with_new_col[row_index_3, ncol(df_with_new_col)] <- max_col
-    }
-    row_index_3 <- row_index_3 + 1
-  }
-  row_index_2 <- row_index_2 + 1
-}
+pid_values <- scores_df$pid
+pid_max_col_map <- sapply(1:nrow(scores_df), function(row_index) {
+  colnames(scores_df)[which.max(scores_df[row_index, ])]
+})
+names(pid_max_col_map) <- pid_values
 
-df <- df_with_new_col
+# Match the pid's across dataframes
+match_indices <- match(df_with_new_col$pid, pid_values)
+max_cols <- pid_max_col_map[match_indices]
 
-View(df)
+# Add the new col with the home data
+df_with_new_col[, ncol(df_with_new_col)] <- max_cols
+
+View(df_with_new_col)
+
+getwd()
+setwd("/Users/sara/Downloads")
+
+# Save the data frame as the CSV file
+write.csv(df_with_new_col, "GPS_filtered_fullmerge(in).csv")
+
+print("CSV file has been written successfully.")
