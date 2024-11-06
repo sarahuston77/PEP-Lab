@@ -89,10 +89,21 @@ View(scores_df)
 # Find the max value from the common scores during that time
 row_index_2 <- 1
 for (pid_value in scores_df$"pid") {
+  
+  # Find what # they stayed the most at
   max_col <- colnames(scores_df)[which.max(scores_df[row_index_2, ])]
+  
+  # Put this number into df_with_new_col
+  row_index_3 <- 1
+  for (pid_og in df_with_new_col$pid) {
+    if (pid_value == pid_og) {
+      df_with_new_col[row_index_3, "home cluster"] <- max_col
+    }
+    row_index_3 <- row_index_3 + 1
+  }
+  
   row_index_2 <- row_index_2 + 1
   
-  print(max_col)
 }
 
 
