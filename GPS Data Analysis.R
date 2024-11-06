@@ -97,14 +97,13 @@ for (pid_value in scores_df$"pid") {
   row_index_3 <- 1
   for (pid_og in df_with_new_col$pid) {
     if (pid_value == pid_og) {
-      df_with_new_col[row_index_3, "home cluster"] <- max_col
+      df_with_new_col[row_index_3, ncol(df_with_new_col)] <- max_col
     }
     row_index_3 <- row_index_3 + 1
   }
-  
   row_index_2 <- row_index_2 + 1
-  
 }
 
+df <- df_with_new_col
 
-
+View(df)
