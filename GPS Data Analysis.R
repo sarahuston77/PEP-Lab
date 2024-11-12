@@ -39,7 +39,7 @@ total_time_per_pid_date_lat_long <- df %>% group_by(date, pid) %>% summarize(tot
 df <- df %>% left_join(total_time_per_pid_date_lat_long, by = c("date", "pid"))
 
 # Percentage column for home coordinate
-df$percent_of_day_lat_long <- ifelse(is.na(df$total_time_minutes_lat_long) | df$total_time_minutes_lat_long == 0, NA, df$total_time_minutes_lat_long * 100 / 1440)
+df$percent_of_day_lat_long <- df$total_time_minutes_lat_long * 100 / 1440
 
 ## NORM CLUSTER
 # Group by pid to find the most frequent value of home cluster from 12:00 am to 6:00 am each day
@@ -54,8 +54,8 @@ total_time_per_pid_date_norm_cluster <- df %>% group_by(Day, pid) %>% summarize(
 # Calculating time spent at most common coordinate pair (each cell is associated with 2 minutes)
 df <- df %>% left_join(total_time_per_pid_date_norm_cluster, by = c("Day", "pid"))
 
-# Percentage column for norm_cluster handeling NA or no value cases
-df$percent_of_day_norm_cluster <- ifelse(is.na(df$total_time_minutes_norm_cluster) | df$total_time_minutes_norm_cluster == 0, NA, df$total_time_minutes_norm_cluster * 100 / 1440)
+# Percent column
+df$percent_of_day_norm_cluster <- df$total_time_minutes_norm_cluster * 100 / 1440
 
 # View final df
 View(df)
