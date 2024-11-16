@@ -1,10 +1,10 @@
-# Install these packages if you don't have them already
-# install.packages("psych")
-# install.packages("readxl")
-# install.packages("lme4")
-# install.packages("Matrix")
-# install.packages("corrr")
-# install.packages("dplyr")
+Install these packages if you don't have them already
+install.packages("psych")
+install.packages("readxl")
+install.packages("lme4")
+install.packages("Matrix")
+install.packages("corrr")
+install.packages("dplyr")
 
 # Load the libraries we'll need
 library(Matrix)   # Matrix stuff
