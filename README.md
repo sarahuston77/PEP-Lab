@@ -17,7 +17,7 @@ This script processes and analyzes GPS data, involving over 300,000 lines of dat
 
 ### 2. **ICC Analysis and Email Notification Script**
 
-This R script is designed to compute the Intraclass Correlation Coefficient (ICC) for behavioral coding data and automate communication among research assistants to ensure data reliability. Features include:
+This R script is designed to compute the Intraclass Correlation Coefficient (ICC) automate communication among research assistants to ensure data reliability. Features include:
 
 - **Automated ICC Calculation**: Calculates ICC for multiple columns in an Excel file to assess inter-coder reliability.
 - **Correlation Analysis**: Provides a correlation matrix for deeper insights into coding metrics.
@@ -25,19 +25,9 @@ This R script is designed to compute the Intraclass Correlation Coefficient (ICC
 
 ## Research Context
 
-These scripts were developed during my tenure as the Research Team Director at the PEP Lab, UNC Chapel Hill (August 2022 - Present), where I contributed significantly to the lab’s research initiatives. My work focused on data analysis, reliability improvement, and coding management, which included:
+These scripts were developed during my tenure as the Research Team Director at the PEP Lab, UNC Chapel Hill (August 2022 - Present), where I contributed significantly to the lab’s research initiatives. My work focused on data analysis, reliability improvement, and coding management.
 
-- **Leadership**: Led a team of six research assistants, enhancing team performance and efficiency.
-- **Custom Code Development**: Developed tailored scripts for extensive data analysis and classification.
-- **Automation Implementation**: Used Python and R to automate tasks, improving coding accuracy and streamlining communication.
-- **Reliability Enhancement**: Elevated inter-coder reliability from 0.4 to 0.9 within five weeks and maintained a consistent reliability above 0.85 across diverse datasets.
-- **Research Presentations**: Communicated research findings effectively to academic audiences and co-authored publications such as “From Listening to Resonating: Testing Novel Behavioral Coding Schemes of High-Quality Listening and Markers of Social Connection in Conversations with Strangers”.
-- **Public Engagement**: Presented results at the UNC Undergraduate Research Symposium, reaching over 200 attendees.
 
 ## Conclusion
 
 These scripts demonstrate my ability to handle complex data sets, develop robust analysis tools, and implement automation for effective research management. My contributions to the PEP Lab highlight my technical skills, leadership, and dedication to advancing behavioral research.
-
----
-
-*For detailed code and examples, please refer to the individual script files in this repository.*
